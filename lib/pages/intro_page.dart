@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/meterialButton.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_app/app_state/customer_provider.dart';
+import 'package:shop_app/components/actions_row.dart';
+import 'package:shop_app/components/meterial_button.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -7,7 +10,6 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +38,9 @@ class IntroPage extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            MyButtun(onTap: () => {}, child: const Icon(Icons.arrow_forward))
+            MyButtun(
+                onTap: () => Navigator.pushNamed(context, '/shopPage'),
+                child: const Icon(Icons.arrow_forward))
           ],
         ),
       ),

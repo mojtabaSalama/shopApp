@@ -1,11 +1,11 @@
-const url = "http://192.168.70.1:4000";
+const url = "https://your-market.up.railway.app";
 
 //customers
 const customerUrl = "$url/api/customer/";
 
 //products
 
-const fetchProcucts = "$url/api/product/fetch";
+const fetchProcucts = "$url/api/product/";
 
 // cart
 const cartUrl = "$url/api/cart/";

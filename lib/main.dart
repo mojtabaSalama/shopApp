@@ -3,7 +3,6 @@ import 'package:shop_app/app_state/cart_provider.dart';
 import 'package:shop_app/app_state/customer_provider.dart';
 import 'package:shop_app/app_state/order_provider.dart';
 import 'package:shop_app/app_state/product_provider.dart';
-import 'package:shop_app/app_state/shop_provider.dart';
 
 import 'package:shop_app/pages/cart_page.dart';
 import 'package:shop_app/pages/intro_page.dart';
@@ -29,7 +28,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => Shop()),
         ChangeNotifierProvider(create: (context) => CustomerProvider()),
         ChangeNotifierProvider(create: (context) => ProductProvider()),
         ChangeNotifierProvider(create: (context) => CartProvider()),

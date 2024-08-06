@@ -12,78 +12,81 @@ class CartProvider extends ChangeNotifier {
   List<Item> cartItems = [];
   double? totalPrice;
 
+  void changeLodingStatus() {
+    isLoading = !isLoading;
+    notifyListeners();
+  }
+
   Future<dynamic> add(data) async {
-    isLoading = true;
+    changeLodingStatus();
     http.Response response = await ApiCart.addToCart(data);
 
     if (response.statusCode == 201) {
-      isLoading = false;
+      changeLodingStatus();
       notifyListeners();
 
       return true;
     } else {
-      isLoading = false;
-      return response.body;
+      changeLodingStatus();
+      return json.decode(response.body);
     }
   }
 
   Future<dynamic> getAll(String token) async {
-    isLoading = true;
+    changeLodingStatus();
     http.Response response = await ApiCart.getAll(token);
 
     if (response.statusCode == 200) {
-      isLoading = false;
       Map<String, dynamic> responseBody = json.decode(response.body);
       final List<dynamic> items = responseBody["cartItems"];
       cartItems = List<Item>.from(items.map((item) => Item.fromJson(item)));
 
       totalPrice = double.parse(responseBody["totalPrice"].toString());
-
+      changeLodingStatus();
       notifyListeners();
 
       return true;
     } else {
-      isLoading = false;
-      return response.body;
+      changeLodingStatus();
+      return json.decode(response.body);
     }
   }
 
   Future<dynamic> remove(Map data) async {
-    isLoading = true;
+    changeLodingStatus();
     http.Response response = await ApiCart.removeFromCart(data);
 
     if (response.statusCode == 200) {
-      isLoading = false;
       getAll(data["token"]);
-
+      changeLodingStatus();
       notifyListeners();
 
       return true;
     } else {
       isLoading = false;
-      return response.body;
+      return json.decode(response.body);
     }
   }
 
   Future<dynamic> update(Map data) async {
-    isLoading = true;
+    changeLodingStatus();
     http.Response response = await ApiCart.update(data);
 
     if (response.statusCode == 200) {
-      isLoading = false;
+      changeLodingStatus();
       getAll(data["token"]);
 
       notifyListeners();
 
       return true;
     } else {
-      isLoading = false;
-      return response.body;
+      changeLodingStatus();
+      return json.decode(response.body);
     }
   }
 
   Future<dynamic> create(data) async {
-    isLoading = true;
+    changeLodingStatus();
     http.Response response = await ApiOrder.placeOrder(data);
 
     if (response.statusCode == 201) {
@@ -91,10 +94,11 @@ class CartProvider extends ChangeNotifier {
       cartItems = [];
       notifyListeners();
 
+      changeLodingStatus();
       return true;
     } else {
-      isLoading = false;
-      return response.body;
+      changeLodingStatus();
+      return json.decode(response.body);
     }
   }
 }

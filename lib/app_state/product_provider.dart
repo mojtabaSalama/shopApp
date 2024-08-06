@@ -12,19 +12,21 @@ class ProductProvider extends ChangeNotifier {
   bool isLoading = false;
 
   Future<dynamic> get() async {
-    isLoading = true;
+    changeLodingStatus();
     http.Response response = await ApiProduct.getAll();
 
     if (response.statusCode == 200) {
       Map<String, dynamic> responseBody = json.decode(response.body);
       _products = List<Product>.from(
           responseBody["products"].map((x) => Product.fromJson(x)));
-      isLoading = false;
+      changeLodingStatus();
 
       notifyListeners();
 
       return true;
     } else {
+      isLoading = false;
+      notifyListeners();
       return response.body;
     }
   }
@@ -35,5 +37,10 @@ class ProductProvider extends ChangeNotifier {
     } catch (e) {
       return null; // or handle the case where the product is not found
     }
+  }
+
+  void changeLodingStatus() {
+    isLoading = !isLoading;
+    notifyListeners();
   }
 }

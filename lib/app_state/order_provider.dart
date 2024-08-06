@@ -13,44 +13,46 @@ class OrderProvider extends ChangeNotifier {
   List<Item> orderItems = [];
 
   Future<dynamic> getAll(String token) async {
-    isLoading = true;
+       changeLodingStatus();
     http.Response response = await ApiOrder.getAll(token);
 
     if (response.statusCode == 200) {
-      isLoading = false;
+     
       Map<String, dynamic> responseBody = json.decode(response.body);
       final List<dynamic> apiOrders = responseBody["orders"];
       orders =
           List<Order>.from(apiOrders.map((order) => Order.fromJson(order)));
-
+   changeLodingStatus();
       notifyListeners();
 
       return true;
     } else {
-      isLoading = false;
-      return response.body;
+         changeLodingStatus();
+     
+      return json.decode(response.body);
     }
   }
 
-
-
   Future<dynamic> getByID(data) async {
-    isLoading = true;
+       changeLodingStatus();
     http.Response response = await ApiOrder.getById(data);
-   
 
     if (response.statusCode == 200) {
-      isLoading = false;
+    
       Map<String, dynamic> responseBody = json.decode(response.body);
       final List<dynamic> apiItems = responseBody["order_items"];
       orderItems = List<Item>.from(apiItems.map((item) => Item.fromJson(item)));
-
+   changeLodingStatus();
       notifyListeners();
 
       return true;
     } else {
-      isLoading = false;
-      return response.body;
+     changeLodingStatus();
+      return json.decode(response.body);
     }
+  }
+  void changeLodingStatus() {
+    isLoading = !isLoading;
+    notifyListeners();
   }
 }

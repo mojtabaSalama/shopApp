@@ -18,30 +18,29 @@ class CustomerProvider extends ChangeNotifier {
     if (response.statusCode == 201) {
       Map<String, dynamic> responseBody = json.decode(response.body);
       _authCustomer = Customer.fromJson(responseBody);
-      notifyListeners();
+
       isLoading = false;
+      notifyListeners();
       return true;
     } else {
       isLoading = false;
+      notifyListeners();
       return response.body;
     }
   }
 
   Future<dynamic> signIn(data) async {
-    isLoading = true;
+    changeLodingStatus();
     http.Response response = await ApiCustomer.signIn(data);
-    print(response.body);
-    print(isLoading);
 
     if (response.statusCode == 200) {
       Map<String, dynamic> responseBody = json.decode(response.body);
       _authCustomer = Customer.fromJson(responseBody);
-      notifyListeners();
-      isLoading = false;
+
+      changeLodingStatus();
       return true;
     } else {
-      isLoading = false;
-
+      changeLodingStatus();
       return response.body;
     }
   }
@@ -49,10 +48,15 @@ class CustomerProvider extends ChangeNotifier {
   bool signout() {
     if (authCustomer != null) {
       _authCustomer = null;
-
+      notifyListeners();
       return true;
     } else {
       return false;
     }
+  }
+
+  void changeLodingStatus() {
+    isLoading = !isLoading;
+    notifyListeners();
   }
 }

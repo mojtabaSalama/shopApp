@@ -15,6 +15,7 @@ This document provides an in-depth look at the design and architecture of the `s
 - [Data Flow](#data-flow)
 - [Third-Party Libraries](#third-party-libraries)
 - [Deployment](#deployment)
+- [Guidline and user Manual](#guidlines)
 - [Future Enhancements](#future-enhancements)
 
 ## Overview
@@ -106,6 +107,33 @@ The project utilizes several third-party libraries, including:
 - **iOS**: Build and deploy using Xcode or the `flutter build ios` command.
 - **Web**: Build using the `flutter build web` command and deploy to a web server.
 - **Desktop**: Build using the `flutter build [linux|macos|windows]` command.
+
+## Guidline and user Manual
+
+### Getting Started
+
+#### Launching the App
+
+1. Connect your device or start an emulator.
+2. Run the app using:
+   ```bash
+   flutter run
+   ```
+
+**Sign In/Sign Up**
+Navigate to the Sign In page.
+Enter your credentials or sign up for a new account.
+**Browsing Products**
+Browse available products on the Product List Page.
+Managing the Shopping Cart
+Add products to your cart from the Product List Page.
+View and manage your cart by navigating to the Shopping Cart Page.
+**Placing Orders**
+Proceed to checkout from the Shopping Cart Page.
+Confirm your order details on the Orders Page.
+**Viewing Order History**
+Access past orders via the Orders Page.
+Click on an order to view its details.
 
 ## Future Enhancements
 

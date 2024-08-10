@@ -120,7 +120,7 @@ The project utilizes several third-party libraries, including:
    flutter run
    ```
 
-**Sign In/Sign Up**
+- **Sign In/Sign Up**
 
 - Navigate to the Sign In page.
 - Enter your credentials or sign up for a new account.
@@ -129,10 +129,10 @@ The project utilizes several third-party libraries, including:
 - Managing the Shopping Cart
 - Add products to your cart from the Product List Page.
 - View and manage your cart by navigating to the Shopping Cart Page.
-  **Placing Orders**
+- **Placing Orders**
 - Proceed to checkout from the Shopping Cart Page.
 - Confirm your order details on the Orders Page.
-  **Viewing Order History**
+- **Viewing Order History**
 - Access past orders via the Orders Page.
 - Click on an order to view its details.
 

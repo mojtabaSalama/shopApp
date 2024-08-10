@@ -121,19 +121,20 @@ The project utilizes several third-party libraries, including:
    ```
 
 **Sign In/Sign Up**
-Navigate to the Sign In page.
-Enter your credentials or sign up for a new account.
-**Browsing Products**
-Browse available products on the Product List Page.
-Managing the Shopping Cart
-Add products to your cart from the Product List Page.
-View and manage your cart by navigating to the Shopping Cart Page.
-**Placing Orders**
-Proceed to checkout from the Shopping Cart Page.
-Confirm your order details on the Orders Page.
-**Viewing Order History**
-Access past orders via the Orders Page.
-Click on an order to view its details.
+
+- Navigate to the Sign In page.
+- Enter your credentials or sign up for a new account.
+  **Browsing Products**
+- Browse available products on the Product List Page.
+- Managing the Shopping Cart
+- Add products to your cart from the Product List Page.
+- View and manage your cart by navigating to the Shopping Cart Page.
+  **Placing Orders**
+- Proceed to checkout from the Shopping Cart Page.
+- Confirm your order details on the Orders Page.
+  **Viewing Order History**
+- Access past orders via the Orders Page.
+- Click on an order to view its details.
 
 ## Future Enhancements
 

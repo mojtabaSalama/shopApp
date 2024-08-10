@@ -18,19 +18,13 @@ class MyCartTile extends StatefulWidget {
 
 class _MyCartTileState extends State<MyCartTile> {
   @override
-  void initState() {
-    super.initState();
-    print(widget.item);
-  }
-
-  @override
   Widget build(BuildContext context) {
     final product =
         context.watch<ProductProvider>().getProduct(widget.item.productId)!;
     return Container(
       decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary),
-      margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.all(25),
+      // margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(20),
       width: 400,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,7 +37,7 @@ class _MyCartTileState extends State<MyCartTile> {
                     image: DecorationImage(
                         image: NetworkImage(product.image), fit: BoxFit.cover)),
                 padding: const EdgeInsets.all(15),
-                width: 100,
+                width: 70,
                 height: 120,
               ),
               const SizedBox(

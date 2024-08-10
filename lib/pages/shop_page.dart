@@ -73,7 +73,7 @@ class _ShopPageState extends State<ShopPage> {
                         crossAxisCount: 2, // Display two products in each row
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 2,
-                        childAspectRatio: 0.55,
+                        childAspectRatio: 0.45,
                       ),
                       delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {

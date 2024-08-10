@@ -30,7 +30,6 @@ class _OrderTileState extends State<OrderTile> {
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
-              Text(widget.order.createdAt.toString().substring(0, 19))
             ],
           ),
           const SizedBox(
@@ -46,6 +45,11 @@ class _OrderTileState extends State<OrderTile> {
             style:
                 TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
           ),
+          Text(
+            widget.order.createdAt.toString().substring(0, 19),
+            style:
+                TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+          ),
           const SizedBox(
             height: 5,
           ),
@@ -57,7 +61,7 @@ class _OrderTileState extends State<OrderTile> {
                         builder: (context) =>
                             OrderDetailsPage(order: widget.order)));
               },
-              child: Text(
+              child: const Text(
                 "Details >",
               ))
         ],

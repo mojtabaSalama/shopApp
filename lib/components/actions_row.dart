@@ -9,6 +9,7 @@ class ActionsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cutomerProvider = context.watch<CustomerProvider>();
+
     return cutomerProvider.authCustomer == null
         ? Row(
             children: [

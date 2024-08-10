@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_app/app_state/customer_provider.dart';
 
 import 'package:shop_app/components/meterial_button.dart';
 
-class IntroPage extends StatelessWidget {
+class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
+
+  @override
+  State<IntroPage> createState() => _IntroPageState();
+}
+
+class _IntroPageState extends State<IntroPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    SchedulerBinding.instance.scheduleFrameCallback((_) {
+      context.read<CustomerProvider>().getSharedPrefrences();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -112,7 +112,6 @@ The project utilizes several third-party libraries, including:
 - **Admin App**: Create an app to handle orders and products.
 - **Payment method**: integrate payment method using paypal , credit cards or any realted method .
 - **Push Notifications**: Integrate push notifications for order updates.
-- **Push Notifications**: Integrate push notifications for order updates.
 - **Enhanced UI/UX**: Improve the user interface and experience based on user feedback.
 
 ---
